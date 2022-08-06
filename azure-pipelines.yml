@@ -25,7 +25,8 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    Contents: 'okta-hosted-login/dist/**' # Pull the build directory (React)
+    SourceFolder: '/home/vsts/work/1/s/okta-hosted-login/'
+    Contents: 'dist/**'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
 
 - task: PublishBuildArtifacts@1

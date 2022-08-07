@@ -31,5 +31,16 @@ steps:
 
 - task: PublishBuildArtifacts@1
   inputs: 
-    PathtoPublish: $(Build.ArtifactStagingDirectory) # dist or build files
-    ArtifactName: 'www' # output artifact named www
+    PathtoPublish: $(Build.ArtifactStagingDirectory) 
+    ArtifactName: 'hosted-login' 
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: '/home/vsts/work/1/s/custom-login/'
+    Contents: 'dist/**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs: 
+    PathtoPublish: $(Build.ArtifactStagingDirectory)
+    ArtifactName: 'custom-login' 
